@@ -76,14 +76,15 @@ public class InputValidator {
 
         //validate first;
 
-        //boolean valideFirstName = validate(this.getFirstName(), StrValidator::firstNameIsCorrect);
-        boolean valideFirstName = validate(this.getFirstName(), (a) -> StrValidator.firstNameIsCorrect(a));
+        //boolean validateFirstName = validate(this.getFirstName(), StrValidator::firstNameIsCorrect);
+        boolean validateFirstName
+                = validate(this.getFirstName(), (a) -> StrValidator.firstNameIsCorrect(a));
 
-        String out = getOutputForFirstName(valideFirstName);
+        String out = getOutputForFirstName(validateFirstName);
 
-        boolean valideZip = validate(this.getZip(), ZipValidator::checkDigit);
+        boolean validateZip = validate(this.getZip(), ZipValidator::checkDigit);
 
-        String zipOut = getOutputForZip(valideZip);
+        String zipOut = getOutputForZip(validateZip);
 
         out = out +
                 zipOut;
@@ -106,11 +107,6 @@ public class InputValidator {
     private String getOutputForFirstName(boolean valideFirstName) {
         return valideFirstName ? " correct first name" : " the first name is not correct";
     }
-
-    private boolean validateFirstLengh(String firstName) {
-        return !firstName.isEmpty() && firstName.length() >= 2;
-    }
-
 
 
     /* Getter and Setter section: */
@@ -172,6 +168,7 @@ class StrValidator {
     }
 
     public static boolean lastNameIsCorrect(String last) {
+        /* YOUR CODE HERE */
         return false;
     }
 
